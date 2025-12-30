@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}Manage Products | MiniMart{% endblock %}
+
+{% block content %}
+<div class="admin-container">
+
+    <!-- HEADER ACTIONS -->
+    <div class="dashboard-header" style="margin-bottom:30px;">
+        <h2 style="margin-left:120px;">Manage Products</h2>
+
+        <div class="header-actions">
+            <a class="btn" href="/admin/dashboard">⬅ Dashboard</a>
+            <a class="btn" href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <!-- ADD PRODUCT -->
+    <div class="product-card" style="max-width:520px; margin:0 auto 50px;">
+        <h2 style="margin-bottom:20px; text-align:center;">Add Product</h2>
+
+        <form method="POST" enctype="multipart/form-data"
+              style="display:grid; gap:12px;">
+
+            <input name="name" placeholder="Product Name" required>
+            <input name="price" type="number" placeholder="Price" required>
+            <input type="number" name="stock" placeholder="Initial Stock" min="0" required>
+
+            <select name="category" required
+                    style="padding:10px; background:#151520; color:#fff;
+                           border-radius:8px; border:1px solid #2b2b40;">
+                <option value="">Select Category</option>
+                <option>Kitchen</option>
+                <option>Cleaning</option>
+                <option>Plastic</option>
+                <option>Daily Essentials</option>
+            </select>
+
+            <input type="file" name="image" accept="image/*">
+
+            <button class="btn" type="submit">Add Product</button>
+        </form>
+    </div>
+
+    <hr style="border-color:#333; margin:40px 0;">
+
+    <!-- EXISTING PRODUCTS -->
+    <h3 style="color:#9a7dff; margin-bottom:25px;">Existing Products</h3>
+
+    {% if products %}
+        <div class="admin-orders">
+            {% for product in products %}
+                <div class="product-card">
+
+                    <!-- PRODUCT INFO -->
+                    <div style="margin-bottom:12px;">
+                        <strong>{{ product.name }}</strong><br>
+                        ₹{{ product.price }}<br>
+                        <small style="color:#aaa;">
+                            Category: {{ product.category or "Uncategorized" }}
+                        </small>
+                    </div>
+
+                    <!-- STOCK -->
+                    <div style="margin-bottom:10px;">
+                        <strong>Stock:</strong>
+                        <span style="color:#facc15;">{{ product.stock }}</span>
+                    </div>
+
+                    <!-- ADD STOCK -->
+                    <form method="POST"
+                          action="/admin/products/stock/{{ product._id }}"
+                          onsubmit="return validateStock(this)"
+                          style="display:flex; gap:10px; margin-bottom:14px;">
+
+                        <input type="number"
+                               name="quantity"
+                               placeholder="+ Qty"
+                               min="1"
+                               style="flex:1;">
+
+                        <button class="btn" type="submit"
+                                style="padding:8px 18px;">
+                            Add
+                        </button>
+                    </form>
+
+                    <!-- ACTIONS -->
+                    <div style="display:flex; gap:10px;">
+                        <a href="/admin/products/toggle/{{ product._id }}"
+                           class="btn"
+                           style="flex:1; padding:8px;">
+                            {% if product.is_active %}
+                                Hide
+                            {% else %}
+                                Show
+                            {% endif %}
+                        </a>
+
+                        <a href="/admin/products/delete/{{ product._id }}"
+                           class="btn"
+                           style="flex:1; padding:8px;
+                                  background:#ff6b6b;"
+                           onclick="return confirm('Delete this product permanently?')">
+                            Delete
+                        </a>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p style="color:#aaa;">No products added yet</p>
+    {% endif %}
+
+</div>
+
+<!-- STOCK VALIDATION -->
+<script>
+function validateStock(form) {
+    const qty = form.quantity.value.trim();
+
+    if (!qty || parseInt(qty) <= 0) {
+        alert("Please enter a valid stock quantity");
+        return false;
+    }
+    return true;
+}
+</script>
+{% endblock %}

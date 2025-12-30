@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}My Profile | MiniMart{% endblock %}
+
+{% block content %}
+<div class="dashboard-card profile-card">
+
+    <h2 class="section-title-center">👤 My Profile</h2>
+
+    <div class="profile-info">
+
+        <div class="profile-row">
+            <span>User ID</span>
+            <strong>{{ user_id }}</strong>
+        </div>
+
+        <div class="profile-row">
+            <span>Total Orders</span>
+            <strong>{{ order_count }}</strong>
+        </div>
+
+        <div class="profile-row">
+            <span>Total Spent</span>
+            <strong>₹{{ total_spent }}</strong>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block title %}User Dashboard | MiniMart{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+
+    <!-- HEADER -->
+    <div class="dashboard-header">
+        <h2 class="section-title-left">Products</h2>
+
+        <div class="header-actions">
+            <a class="btn" href="/profile">👤 Profile</a>
+            <a class="btn" href="/orders">📦 My Orders</a>
+        </div>
+    </div>
+
+    <!-- CATEGORY FILTER -->
+    <form method="GET" action="/user/dashboard"
+          style="margin-bottom:18px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+
+        <select name="category"
+                style="padding:12px 14px; min-width:200px;
+                       background:#151520; color:#fff;
+                       border-radius:10px; border:1px solid #2b2b40;">
+            <option value="All">All Categories</option>
+            {% for cat in categories %}
+                <option value="{{ cat }}"
+                    {% if selected_category == cat %}selected{% endif %}>
+                    {{ cat }}
+                </option>
+            {% endfor %}
+        </select>
+
+        {% if search_query %}
+            <input type="hidden" name="q" value="{{ search_query }}">
+        {% endif %}
+
+        <button type="submit"
+                style="padding:12px 18px;
+                       background:linear-gradient(135deg,#8b6cff,#9a7dff);
+                       color:#fff; border:none; border-radius:10px;
+                       font-weight:600; cursor:pointer; white-space:nowrap;">
+            Filter
+        </button>
+    </form>
+
+    <!-- SORT -->
+    <form method="GET" action="/user/dashboard"
+          style="margin-bottom:20px; display:flex; gap:12px; flex-wrap:wrap;">
+
+        {% if selected_category %}
+            <input type="hidden" name="category" value="{{ selected_category }}">
+        {% endif %}
+        {% if search_query %}
+            <input type="hidden" name="q" value="{{ search_query }}">
+        {% endif %}
+
+        <select name="sort"
+                onchange="this.form.submit()"
+                style="padding:12px 14px;
+                       background:#151520; color:#fff;
+                       border-radius:10px; border:1px solid #2b2b40;">
+            <option value="">Sort by Price</option>
+            <option value="low" {% if selected_sort == "low" %}selected{% endif %}>
+                Price: Low → High
+            </option>
+            <option value="high" {% if selected_sort == "high" %}selected{% endif %}>
+                Price: High → Low
+            </option>
+        </select>
+    </form>
+
+    <!-- SEARCH -->
+    <form method="GET" action="/user/dashboard" style="margin-bottom:28px;">
+        {% if selected_category %}
+            <input type="hidden" name="category" value="{{ selected_category }}">
+        {% endif %}
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search products..."
+            value="{{ search_query if search_query }}"
+            style="width:100%; padding:14px;
+                   border-radius:12px;
+                   background:#151520; color:#fff;
+                   border:1px solid #2b2b40; outline:none;">
+    </form>
+
+    <!-- PRODUCTS GRID -->
+    {% if products %}
+        <div class="products-grid">
+            {% for product in products %}
+                <div class="product-card">
+
+                    {% if product.image %}
+                        <img src="{{ url_for('static', filename='uploads/' ~ product.image) }}"
+                             alt="{{ product.name }}">
+                    {% endif %}
+
+                    <!-- NEW BADGE -->
+                    {% if product.created_at and (now - product.created_at).days <= 7 %}
+                        <span class="stock-badge stock-ok">NEW</span>
+                    {% endif %}
+
+                    <div class="product-name">{{ product.name }}</div>
+                    <div class="product-price">₹{{ product.price }}</div>
+
+                    {% set stock = product.get('stock', 0) %}
+
+                    {% if stock == 0 %}
+                        <span class="stock-badge stock-out">Out of Stock</span>
+                    {% elif stock <= 2 %}
+                        <span class="stock-badge stock-low">
+                            ⚠ Low Stock ({{ stock }})
+                        </span>
+                    {% else %}
+                        <span class="stock-badge stock-ok">
+                            Available: {{ stock }}
+                        </span>
+                    {% endif %}
+
+                    <div class="product-actions">
+    {% if stock > 0 %}
+        <a class="btn" href="/cart/add/{{ product._id }}">Add to Cart</a>
+    {% endif %}
+
+    <a class="link" href="/wishlist/add/{{ product._id }}">❤️ Wishlist</a>
+</div>
+
+
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <!-- EMPTY STATE UX -->
+        <div style="text-align:center; color:#aaa; padding:40px;">
+            😕 No products match your filter.<br>
+            Try changing category, sort, or search.
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

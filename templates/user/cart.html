@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}My Cart | MiniMart{% endblock %}
+
+{% block content %}
+<div class="cart-page">
+
+    <h2 class="page-title">My Cart</h2>
+
+    {% if items %}
+        <div class="cart-wrapper">
+
+            <!-- CART ITEMS -->
+            <div class="cart-list">
+                {% for item in items %}
+                    <div class="cart-item-card">
+
+                        <div class="cart-item-info">
+                            <h4>{{ item.name }}</h4>
+                            <span class="cart-price">₹{{ item.price }}</span>
+                            <span class="cart-qty">Quantity: {{ item.quantity }}</span>
+                        </div>
+
+                        <div class="cart-item-actions">
+
+    <a href="/cart/decrease/{{ item._id }}" class="qty-btn">−</a>
+
+    <span class="qty-count">{{ item.quantity }}</span>
+
+    <a href="/cart/increase/{{ item._id }}" class="qty-btn">+</a>
+
+    <a href="/cart/remove/{{ item._id }}" class="btn btn-remove">Remove</a>
+
+</div>
+
+
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- SUMMARY -->
+            <div class="cart-summary-box">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <strong>₹{{ total }}</strong>
+                </div>
+
+                <a href="/orders/place" class="btn btn-checkout">
+                    Place Order
+                </a>
+            </div>
+
+        </div>
+    {% else %}
+        <p class="empty-text">Your cart is empty.</p>
+    {% endif %}
+
+</div>
+{% endblock %}

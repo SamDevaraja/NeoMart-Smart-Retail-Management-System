@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}My Orders | MiniMart{% endblock %}
+
+{% block content %}
+<div class="card dashboard-card orders-page">
+    <h2>My Orders</h2>
+
+    {% if request.args.get('success') %}
+        <p style="color:#9a7dff; text-align:center; margin-bottom:15px;">
+            ✅ Order placed successfully
+        </p>
+    {% endif %}
+
+    <!-- ORDER SUMMARY -->
+    <div class="product-card" style="margin-bottom:25px;">
+        <strong>Total Orders:</strong> {{ order_count }}<br><br>
+        <strong>Total Spent:</strong> ₹{{ total_spent }}
+    </div>
+
+    {% if orders %}
+        <div class="dashboard-actions">
+            {% for order in orders %}
+                <div style="border-bottom:1px solid #333; padding-bottom:16px; margin-bottom:16px;">
+
+                    <strong>Total:</strong> ₹{{ order.total }}<br><br>
+
+                    <!-- ORDER STATUS TIMELINE -->
+                    <div class="order-timeline">
+                        <span class="order-step {% if order.status == 'Placed' %}active{% endif %}">Placed</span>
+                        <span class="order-step {% if order.status == 'Approved' %}active{% endif %}">Approved</span>
+                        <span class="order-step {% if order.status == 'Shipped' %}active{% endif %}">Shipped</span>
+                        <span class="order-step {% if order.status == 'Delivered' %}active{% endif %}">Delivered</span>
+                    </div>
+
+                    <small style="color:#aaa; display:block; margin-bottom:10px;">
+                        Ordered on:
+                        {{ order.created_at.strftime('%d %b %Y, %I:%M %p')
+                           if order.created_at is defined else 'N/A' }}
+                    </small>
+
+                    <!-- VIEW DETAILS -->
+                    <a class="btn view-details" href="/orders/{{ order._id }}">View Details</a>
+
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div style="text-align:center; color:#aaa; padding:40px;">
+            📦 You haven’t placed any orders yet.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

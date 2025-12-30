@@ -1,0 +1,1927 @@
+/* ---------- GLOBAL RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---------- BODY ---------- */
+body {
+    background: #0b0b0f;
+    color: #eaeaea;
+    min-height: 100vh;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+    height: 60px;
+    background: rgba(20, 20, 30, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid #7f5af0;
+}
+
+.nav-left {
+    font-size: 22px;
+    font-weight: 600;
+    color: #7f5af0;
+}
+
+.nav-right a {
+    color: #eaeaea;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.nav-right a:hover {
+    color: #9a7dff;
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------- CARD ---------- */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 420px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(127, 90, 240, 0.4);
+    box-shadow: 0 0 25px rgba(127, 90, 240, 0.15);
+}
+
+/* ---------- HEADINGS ---------- */
+.card h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #7f5af0;
+}
+
+/* ---------- INPUTS ---------- */
+.card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: #151520;
+    color: #fff;
+}
+
+.card input:focus {
+    outline: 2px solid #7f5af0;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #7f5af0, #9a7dff);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(127, 90, 240, 0.6);
+}
+
+/* ---------- LINKS ---------- */
+.link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #9a7dff;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: none;
+}
+/* ---------- DASHBOARD FIX ---------- */
+.dashboard-card {
+    max-width: 500px;
+    width: 100%;
+}
+
+.dashboard-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-card {
+    background: linear-gradient(180deg, #151520, #0f0f1a);
+    border: 1px solid #2b2b40;
+    border-radius: 14px;
+    padding: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(154,125,255,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;              /* 🔥 auto height */
+    max-height: 180px;         /* prevents huge images */
+    object-fit: cover;         /* fills naturally */
+    background: transparent;   /* ❌ remove white background */
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.product-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.product-price {
+    color: #9a7dff;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.product-stock {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.out-stock {
+    color: #ff6b6b;
+}
+
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.dashboard-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.products-grid {
+    display: grid;
+    gap: 20px;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 640px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.dashboard-header h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.dashboard-header .header-actions {
+    display: flex;
+    gap: 12px;
+}
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.dashboard-header h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.dashboard-header .header-actions {
+    display: flex;
+    gap: 12px;
+}
+/* FULL WIDTH ADMIN CONTAINER */
+.admin-container {
+    width: 100%;
+    padding: 24px 32px;
+}
+
+/* HEADER */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.dashboard-header h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+/* ANALYTICS GRID */
+.admin-stats {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 640px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .admin-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ORDERS GRID */
+.admin-orders {
+    display: grid;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .admin-orders {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) {
+    .admin-orders {
+        grid-template-columns: repeat(
+            2,
+            1fr
+        );
+    }
+}
+/* ============================
+   CLEAN ADMIN HEADER BUTTONS
+   ============================ */
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Base admin button */
+.header-actions .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 999px; /* pill shape */
+    background: transparent;
+    color: #e5e7eb;
+    border: 1px solid #2b2b40;
+    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+}
+
+/* Manage Products — primary but subtle */
+.header-actions .btn:first-child {
+    color: #9a7dff;
+    border-color: rgba(154, 125, 255, 0.45);
+}
+
+.header-actions .btn:first-child:hover {
+    background: rgba(154, 125, 255, 0.12);
+    border-color: #9a7dff;
+}
+
+/* Logout — danger but calm */
+.header-actions .btn:last-child {
+    color: #ff6b6b;
+    border-color: rgba(255, 107, 107, 0.45);
+}
+
+.header-actions .btn:last-child:hover {
+    background: rgba(255, 107, 107, 0.12);
+    border-color: #ff6b6b;
+}
+
+/* Focus (keyboard users) */
+.header-actions .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(154, 125, 255, 0.25);
+}
+/* Stock badges */
+.stock-badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.stock-low {
+    background: rgba(255, 193, 7, 0.15);
+    color: #facc15;
+    border: 1px solid rgba(250, 204, 21, 0.4);
+}
+
+.stock-out {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.4);
+}
+
+.stock-ok {
+    background: rgba(74, 222, 128, 0.12);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.35);
+}
+/* Cart count badge */
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: #9a7dff;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 999px;
+    min-width: 18px;
+    text-align: center;
+}
+.order-timeline {
+    margin-bottom: 10px;
+}
+
+.order-step {
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin-right: 6px;
+    font-size: 12px;
+    background: #2b2b40;
+    color: #fff;
+    display: inline-block;
+}
+
+.order-step.active {
+    background: #9a7dff;
+}
+/* ===============================
+   MANAGE PRODUCTS – ADMIN POLISH
+   =============================== */
+
+/* Add Product Card */
+.admin-container .product-card h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.admin-container .product-card form input,
+.admin-container .product-card form select {
+    padding: 12px;
+    border-radius: 10px;
+    background: #151520;
+    border: 1px solid #2b2b40;
+    color: #fff;
+    font-size: 14px;
+}
+
+.admin-container .product-card form input::placeholder {
+    color: #777;
+}
+
+.admin-container .product-card form input:focus,
+.admin-container .product-card form select:focus {
+    outline: none;
+    border-color: #9a7dff;
+    box-shadow: 0 0 0 2px rgba(154,125,255,0.15);
+}
+
+/* Add Product Button */
+.admin-container .product-card form .btn {
+    margin-top: 10px;
+}
+
+/* ===============================
+   PRODUCT GRID
+   =============================== */
+
+.admin-orders {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+}
+
+/* Individual Product Card */
+.admin-orders .product-card {
+    padding: 18px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #151520, #0f0f1a);
+    border: 1px solid #2b2b40;
+    box-shadow: 0 0 20px rgba(154,125,255,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-orders .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(154,125,255,0.18);
+}
+
+/* Product Name */
+.admin-orders .product-card strong {
+    font-size: 16px;
+    color: #fff;
+}
+
+/* Category */
+.admin-orders .product-card small {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* Stock */
+.admin-orders .product-card span {
+    font-weight: 600;
+}
+
+/* ===============================
+   STOCK FORM
+   =============================== */
+
+.admin-orders form {
+    margin-top: 10px;
+}
+
+.admin-orders form input[type="number"] {
+    background: #0f0f1a;
+    border: 1px solid #2b2b40;
+    border-radius: 8px;
+    padding: 10px;
+    color: #fff;
+}
+
+/* Add Stock Button */
+.admin-orders form .btn {
+    background: linear-gradient(135deg, #7f5af0, #9a7dff);
+    font-size: 13px;
+    padding: 10px;
+}
+
+/* ===============================
+   ACTION BUTTONS
+   =============================== */
+
+.admin-orders .btn {
+    font-size: 13px;
+    border-radius: 10px;
+}
+
+/* Hide / Show */
+.admin-orders a.btn {
+    background: transparent;
+    border: 1px solid #2b2b40;
+    color: #9a7dff;
+}
+
+.admin-orders a.btn:hover {
+    background: rgba(154,125,255,0.12);
+    border-color: #9a7dff;
+}
+
+/* Delete */
+.admin-orders a[style*="background:#ff6b6b"] {
+    background: rgba(255,107,107,0.15) !important;
+    color: #ff6b6b !important;
+    border: 1px solid rgba(255,107,107,0.4);
+}
+
+.admin-orders a[style*="background:#ff6b6b"]:hover {
+    background: rgba(255,107,107,0.25) !important;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 640px) {
+    .admin-orders {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================
+   USER UI FINAL POLISH
+   ========================== */
+
+/* Full-width user container */
+.dashboard-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Header alignment */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.dashboard-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Filter + sort forms alignment */
+.dashboard-container form {
+    width: 100%;
+}
+
+/* Product grid */
+.products-grid {
+    display: grid;
+    gap: 22px;
+    margin-top: 10px;
+}
+
+/* Responsive grid */
+@media (max-width: 640px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Product card polish */
+.product-card {
+    background: linear-gradient(180deg, #151520, #0f0f1a);
+    border: 1px solid #2b2b40;
+    border-radius: 16px;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(154, 125, 255, 0.18);
+}
+
+/* Product image */
+.product-card img {
+    width: 100%;
+    height: auto;              /* 🔥 auto height */
+    max-height: 180px;         /* prevents huge images */
+    object-fit: cover;         /* fills naturally */
+    background: transparent;   /* ❌ remove white background */
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Product name */
+.product-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Price */
+.product-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #9a7dff;
+    margin-bottom: 6px;
+}
+
+/* Stock badges spacing */
+.stock-badge {
+    margin-bottom: 10px;
+}
+
+/* Actions layout */
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Buttons consistency */
+.product-actions .btn {
+    font-size: 13px;
+    padding: 10px;
+}
+
+/* Wishlist link */
+.product-actions .link {
+    font-size: 13px;
+    text-align: center;
+}
+
+/* Empty state */
+.dashboard-container > div[style*="No products"] {
+    font-size: 16px;
+    color: #9ca3af;
+}
+
+/* Orders & cart cards */
+.dashboard-card {
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+}
+
+/* Mobile padding */
+@media (max-width: 640px) {
+    .dashboard-container {
+        padding: 16px;
+    }
+
+    .dashboard-header h2 {
+        font-size: 22px;
+    }
+}
+/* ==========================
+   PROFILE PAGE
+   ========================== */
+
+.profile-card {
+    max-width: 520px;
+    width: 100%;
+    margin: auto;
+}
+
+.profile-info {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #2b2b40;
+    font-size: 15px;
+}
+
+.profile-row span {
+    color: #9ca3af;
+}
+
+.profile-row strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-row {
+        font-size: 14px;
+    }
+}
+.dashboard-header .header-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+/* ==========================
+   USER DASHBOARD HEADER FIX
+   ========================== */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.dashboard-header .header-actions {
+    display: flex;
+    flex-direction: row;      /* FORCE SAME ROW */
+    gap: 12px;
+    flex-wrap: nowrap;        /* NO WRAP on desktop */
+}
+
+/* Allow wrap ONLY on very small screens */
+@media (max-width: 480px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-header .header-actions {
+        flex-wrap: wrap;
+    }
+}
+/* ==========================
+   FIX DASHBOARD HEADER BUTTON SIZE
+   ========================== */
+
+/* Override global button width ONLY in dashboard header */
+.dashboard-header .btn {
+    width: auto;              /* 👈 text-based width */
+    padding: 10px 16px;       /* consistent spacing */
+    font-size: 14px;
+    white-space: nowrap;      /* prevent text wrap */
+}
+
+/* Keep buttons in same row */
+.dashboard-header .header-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+/* ==========================
+   ORDER DETAILS – PROFESSIONAL UI
+   ========================== */
+
+.order-details-card {
+    max-width: 720px;
+    width: 100%;
+    margin: auto;
+}
+
+/* Items container */
+.order-items {
+    margin-top: 24px;
+}
+
+/* Each item row */
+.order-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #2b2b40;
+}
+
+/* Left side */
+.order-item-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.order-item-left small {
+    color: #9ca3af;
+}
+
+/* Right side price */
+.order-item-right {
+    font-weight: 600;
+    color: #9a7dff;
+    font-size: 15px;
+}
+
+/* Divider */
+.order-divider {
+    border: none;
+    border-top: 1px solid #2b2b40;
+    margin: 24px 0;
+}
+
+/* Total row */
+.order-total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* Print button */
+.print-btn {
+    width: 100%;
+}
+
+/* ==========================
+   MOBILE OPTIMIZATION
+   ========================== */
+
+@media (max-width: 640px) {
+    .order-item-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .order-item-right {
+        align-self: flex-end;
+    }
+
+    .order-total-row {
+        font-size: 16px;
+    }
+}
+
+/* VIEW DETAILS button (Orders page) */
+.dashboard-actions a[href*="/orders/"] {
+    display: inline-block;
+    width: auto !important;
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    background: transparent !important;
+    color: #9a7dff !important;
+    border: 1px solid rgba(154, 125, 255, 0.45) !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+}
+
+.dashboard-actions a[href*="/orders/"]:hover {
+    background: rgba(154, 125, 255, 0.12) !important;
+    border-color: #9a7dff !important;
+}
+
+/* VIEW DETAILS — Orders page */
+.dashboard-actions a.btn.view-details {
+    width: fit-content !important;
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    background: transparent !important;
+    color: #9a7dff !important;
+    border: 1px solid rgba(154,125,255,0.45) !important;
+}
+
+/* Hover effects */
+.products-grid .product-card .product-actions a.btn:hover,
+.dashboard-actions a.btn.view-details:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(154,125,255,0.45);
+}
+/* =========================================
+   GLASSMORPHIC ADD TO CART BUTTON (FINAL)
+   ========================================= */
+
+.products-grid .product-card .product-actions a.btn {
+    /* Remove underline */
+    text-decoration: none !important;
+
+    /* Size & layout */
+    width: fit-content !important;
+    padding: 10px 18px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    border-radius: 999px !important;
+    white-space: nowrap;
+
+    /* Glass effect */
+    background: linear-gradient(
+        135deg,
+        rgba(154, 125, 255, 0.35),
+        rgba(127, 90, 240, 0.35)
+    ) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Border & color */
+    border: 1px solid rgba(154, 125, 255, 0.45) !important;
+    color: #ffffff !important;
+
+    /* Flex */
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+
+    /* Interaction */
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.3s ease;
+}
+
+/* Hover */
+.products-grid .product-card .product-actions a.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(154, 125, 255, 0.35);
+    background: linear-gradient(
+        135deg,
+        rgba(154, 125, 255, 0.5),
+        rgba(127, 90, 240, 0.5)
+    );
+}
+
+/* Click */
+.products-grid .product-card .product-actions a.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(154, 125, 255, 0.3);
+}
+
+/* Cart icon */
+.products-grid .product-card .product-actions a.btn::before {
+    content: "🛒";
+    font-size: 13px;
+}
+/* ==========================
+   REMOVE UNDERLINE FROM ALL BUTTON-LIKE LINKS
+   ========================== */
+
+/* Kill underline in all states */
+a.btn,
+a.btn:hover,
+a.btn:focus,
+a.btn:active,
+a.btn:visited {
+    text-decoration: none !important;
+}
+
+/* Also ensure header buttons are clean */
+.dashboard-header .btn,
+.dashboard-header .btn:hover {
+    text-decoration: none !important;
+}
+
+/* Product action buttons */
+.product-actions a,
+.product-actions a:hover {
+    text-decoration: none !important;
+}
+/* ==========================
+   CART PAGE – PRO GLASS UI
+   ========================== */
+
+/* Cart container */
+.cart-page .dashboard-card {
+    max-width: 900px;
+    padding: 32px;
+}
+
+/* Each cart item */
+.cart-page .product-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(154,125,255,0.35);
+    border-radius: 18px;
+
+    padding: 18px;
+    margin-bottom: 16px;
+}
+
+/* Cart item text */
+.cart-page .product-card strong {
+    font-size: 16px;
+}
+
+/* Price highlight */
+.cart-page .product-card span,
+.cart-page .product-card b {
+    color: #9a7dff;
+    font-weight: 600;
+}
+
+/* Cart action buttons */
+.cart-page .btn {
+    width: auto;
+    padding: 10px 18px;
+    border-radius: 999px;
+
+    background: rgba(154,125,255,0.18);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(154,125,255,0.45);
+
+    box-shadow: 0 8px 24px rgba(154,125,255,0.35);
+}
+
+/* Hover */
+.cart-page .btn:hover {
+    background: rgba(154,125,255,0.3);
+    transform: translateY(-2px);
+}
+
+/* Cart total */
+.cart-total {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+    margin-top: 24px;
+}
+/* ==========================
+   WISHLIST – PREMIUM UI
+   ========================== */
+
+.wishlist-page .dashboard-card {
+    max-width: 1000px;
+}
+
+/* Wishlist grid */
+.wishlist-page .products-grid {
+    display: grid;
+    gap: 22px;
+}
+
+/* Wishlist product card */
+.wishlist-page .product-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(154,125,255,0.35);
+    border-radius: 20px;
+
+    padding: 20px;
+    text-align: center;
+}
+
+/* Wishlist image */
+.wishlist-page .product-card img {
+    width: 100%;
+    height: auto;              /* 🔥 auto height */
+    max-height: 180px;         /* keeps cards balanced */
+    object-fit: cover;         /* fills image naturally */
+    background: transparent;   /* ❌ remove white space */
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* Wishlist name */
+.wishlist-page .product-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Wishlist price */
+.wishlist-page .product-price {
+    color: #9a7dff;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+/* Wishlist buttons */
+.wishlist-page .btn {
+    width: 100%;
+    border-radius: 14px;
+    padding: 12px;
+
+    background: rgba(154,125,255,0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(154,125,255,0.45);
+}
+
+/* Remove button */
+.wishlist-page .link {
+    display: block;
+    margin-top: 10px;
+    color: #ff6b6b;
+    font-weight: 500;
+}
+/* ==========================
+   CART & WISHLIST – UI FIX
+   ========================== */
+
+/* Page container */
+.cart-container,
+.wishlist-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 24px;
+}
+
+/* Grid layout like dashboard */
+.cart-grid,
+.wishlist-grid {
+    display: grid;
+    gap: 22px;
+    margin-top: 24px;
+}
+
+/* Responsive grid */
+@media (max-width: 640px) {
+    .cart-grid,
+    .wishlist-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .cart-grid,
+    .wishlist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .cart-grid,
+    .wishlist-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Card size control */
+.cart-grid .product-card,
+.wishlist-grid .product-card {
+    max-width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #151520, #0f0f1a);
+    border: 1px solid #2b2b40;
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+.cart-grid .product-card:hover,
+.wishlist-grid .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(154, 125, 255, 0.18);
+}
+
+/* Product image */
+.cart-grid img,
+.wishlist-grid img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+/* Product name */
+.cart-grid .product-name,
+.wishlist-grid .product-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Price */
+.cart-grid .product-price,
+.wishlist-grid .product-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #9a7dff;
+    margin-bottom: 8px;
+}
+
+/* Action buttons row */
+.cart-actions,
+.wishlist-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.cart-actions .btn,
+.wishlist-actions .btn {
+    flex: 1;
+    font-size: 13px;
+    padding: 10px;
+}
+
+/* Remove button */
+.cart-actions .remove-btn,
+.wishlist-actions .remove-btn {
+    background: rgba(255, 107, 107, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 107, 107, 0.4);
+}
+
+.cart-actions .remove-btn:hover,
+.wishlist-actions .remove-btn:hover {
+    background: rgba(255, 107, 107, 0.25);
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #9ca3af;
+    font-size: 16px;
+}
+/* ==========================
+   PAGE TITLES – CART & WISHLIST
+   ========================== */
+
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+
+    /* subtle glow */
+    text-shadow: 0 0 20px rgba(154, 125, 255, 0.25);
+}
+
+/* underline accent */
+.page-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    margin: 12px auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7f5af0, #9a7dff);
+}
+
+/* Mobile adjustment */
+@media (max-width: 640px) {
+    .page-title {
+        font-size: 24px;
+        margin-bottom: 22px;
+    }
+}
+/* ==========================
+   FIX CART PAGE OVERLAP
+   ========================== */
+
+/* Disable center-flex for cart page only */
+.cart-page {
+    display: block;
+}
+
+/* Ensure cart content flows vertically */
+.cart-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+}
+
+/* Cart grid centered */
+.cart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* Cart summary spacing */
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Fix mobile overlap */
+@media (max-width: 640px) {
+    .cart-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.page-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #9a7dff;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+/* ==========================
+   PROFESSIONAL CART UI
+   ========================== */
+
+.cart-page {
+    width: 100%;
+    padding: 40px 20px;
+}
+
+/* Wrapper */
+.cart-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Cart list */
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Individual item card */
+.cart-item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #151520, #0f0f1a);
+    border: 1px solid #2b2b40;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* Item info */
+.cart-item-info h4 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.cart-price {
+    color: #9a7dff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.cart-qty {
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* Actions */
+.cart-item-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Buttons */
+.btn-cart {
+    background: rgba(154,125,255,0.15);
+    border: 1px solid rgba(154,125,255,0.4);
+    color: #fff;
+}
+
+.btn-cart:hover {
+    background: rgba(154,125,255,0.3);
+}
+
+.btn-remove {
+    background: rgba(255,107,107,0.15);
+    border: 1px solid rgba(255,107,107,0.4);
+    color: #ff6b6b;
+}
+
+.btn-remove:hover {
+    background: rgba(255,107,107,0.3);
+}
+
+/* Summary box */
+.cart-summary-box {
+    margin-top: 30px;
+    padding: 22px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #2b2b40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Total */
+.cart-total span {
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.cart-total strong {
+    font-size: 22px;
+    color: #fff;
+}
+
+/* Checkout button */
+.btn-checkout {
+    padding: 12px 28px;
+    font-size: 15px;
+    border-radius: 999px;
+}
+
+/* Empty */
+.empty-text {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 16px;
+    margin-top: 60px;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .cart-item-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .cart-summary-box {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .btn-checkout {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* ==========================
+   CART QUANTITY CONTROLS
+   ========================== */
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(154,125,255,0.15);
+    border: 1px solid rgba(154,125,255,0.4);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+    background: rgba(154,125,255,0.3);
+    transform: scale(1.05);
+}
+
+.qty-count {
+    min-width: 28px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+/* ==========================
+   AUTH — REAL PRODUCT UI
+   ========================== */
+
+.auth-layout {
+    min-height: calc(100vh - 60px);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    background: radial-gradient(circle at top left, #1b1b3a, #0b0b0f);
+}
+
+/* LEFT BRAND PANEL */
+.auth-brand {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    background:
+        linear-gradient(135deg, rgba(154,125,255,0.15), transparent);
+}
+
+.auth-brand h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #9a7dff;
+}
+
+.auth-brand p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #d1d5db;
+}
+
+/* RIGHT FORM PANEL */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(14px);
+}
+
+.auth-form h2 {
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+.auth-hint {
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 28px;
+}
+
+/* INPUTS */
+.auth-form input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 14px;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #9a7dff;
+    box-shadow: 0 0 0 3px rgba(154,125,255,0.25);
+}
+
+/* CTA */
+.auth-btn {
+    padding: 14px;
+    border-radius: 16px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* LINK */
+.auth-link {
+    margin-top: 22px;
+    font-size: 14px;
+    color: #c4b5fd;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .auth-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-brand {
+        display: none;
+    }
+
+    .auth-form {
+        padding: 40px 24px;
+    }
+}
+/* ==========================
+   AUTH LINK ALIGNMENT FIX
+   ========================== */
+
+.auth-link {
+    display: block;           /* 👈 makes centering possible */
+    text-align: center;       /* 👈 visual centering */
+    margin-top: 22px;
+    font-size: 14px;
+    color: #c4b5fd;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+    color: #9a7dff;
+}
+/* ==========================
+   AUTH PAGES (LOGIN / REGISTER)
+   FULL RESPONSIVE FIX
+   ========================== */
+
+/* Center auth pages vertically & horizontally */
+.container {
+    min-height: calc(100vh - 60px); /* navbar height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* Auth card size control */
+.card {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Improve form spacing */
+.card form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Center bottom links */
+.card .link {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+/* Button consistency */
+.card .btn {
+    width: 100%;
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    .card {
+        padding: 28px 22px;
+    }
+
+    .card h2 {
+        font-size: 22px;
+    }
+
+    .card input {
+        padding: 11px;
+        font-size: 14px;
+    }
+
+    .card .btn {
+        padding: 11px;
+        font-size: 14px;
+    }
+}
+
+/* Large screens polish */
+@media (min-width: 1024px) {
+    .card {
+        padding: 42px;
+    }
+}
+/* ==========================
+   GLOBAL BACK BUTTON
+   ========================== */
+
+.back-btn {
+    position: absolute;
+    top: 80px;              /* below navbar */
+    left: 24px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(154, 125, 255, 0.12);
+    border: 1px solid rgba(154, 125, 255, 0.45);
+    color: #9a7dff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+    z-index: 50;
+}
+
+.back-btn:hover {
+    background: rgba(154, 125, 255, 0.22);
+    box-shadow: 0 0 18px rgba(154, 125, 255, 0.35);
+    transform: translateX(-2px);
+}
+
+.back-btn:active {
+    transform: scale(0.96);
+}
+
+/* Mobile adjustment */
+@media (max-width: 640px) {
+    .back-btn {
+        top: 70px;
+        left: 16px;
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+}
+/* ==========================
+   MY ORDERS – WIDTH FIX ONLY
+   ========================== */
+
+/* Override width ONLY for My Orders page */
+.orders-page {
+    max-width: 1100px;     /* desktop */
+    width: 100%;
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+    .orders-page {
+        max-width: 1300px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .orders-page {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+/* =========================
+   SECTION TITLE EFFECTS
+   ========================= */
+
+/* Left-aligned section title (Products) */
+.section-title-left {
+    font-size: 28px;
+    font-weight: 600;
+    color: #eaeaea;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.section-title-left::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    margin-top: 6px;
+    background: linear-gradient(90deg, #7f5af0, #9a7dff);
+    border-radius: 2px;
+}
+
+/* Centered section title (My Profile) */
+.section-title-center {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.section-title-center::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: linear-gradient(90deg, #7f5af0, #9a7dff);
+    border-radius: 2px;
+}
+
+/* Subtle glow on hover (optional but premium) */
+.section-title-left:hover,
+.section-title-center:hover {
+    text-shadow: 0 0 12px rgba(154, 125, 255, 0.6);
+}
+/* Login error alert */
+.auth-error {
+    margin: 14px 0;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255, 107, 107, 0.15);
+    border: 1px solid rgba(255, 107, 107, 0.4);
+    color: #ff6b6b;
+    font-size: 14px;
+    text-align: center;
+}
+/* Wishlist image container */
+.wishlist-image {
+    width: 100%;
+    height: 180px;
+    background: #0f0f1a;
+    border-radius: 14px;
+    overflow: hidden;              /* 🔥 removes white padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+/* Image inside wishlist */
+.wishlist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;             /* 🔥 crops image properly */
+    display: block;
+}
+/* ==========================
+   AUTH CENTERED LAYOUT
+   (Forgot / Reset Password)
+   ========================== */
+
+.auth-layout.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 70px); /* below navbar */
+    padding: 40px 20px;
+}
+
+/* Single card width */
+.auth-layout.centered .auth-form {
+    width: 100%;
+    max-width: 520px;
+}
+
+/* Improve vertical rhythm */
+.auth-layout.centered h2 {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.auth-layout.centered .auth-hint {
+    display: block;
+    margin-bottom: 24px;
+}
+
+/* Inputs spacing */
+.auth-layout.centered input {
+    margin-bottom: 16px;
+}
+
+/* Buttons spacing */
+.auth-layout.centered .auth-btn {
+    margin-top: 10px;
+}
+
+/* Back to login link */
+.auth-layout.centered .auth-link {
+    display: block;
+    margin-top: 18px;
+    text-align: center;
+}
+/* Center forgot password link */
+.forgot-wrapper {
+    width: 100%;
+    text-align: center;
+    margin: 12px 0 4px;
+}

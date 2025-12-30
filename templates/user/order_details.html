@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Order Details | MiniMart{% endblock %}
+
+{% block content %}
+<div class="dashboard-card order-details-card">
+
+    <h2>🧾 Order Details</h2>
+
+    <!-- ORDER ITEMS -->
+    <div class="order-items">
+        {% for item in order['items'] %}
+            <div class="order-item-row">
+                <div class="order-item-left">
+                    <strong>{{ item.name }}</strong>
+                    <small>Qty: {{ item.quantity | default(1) }}</small>
+                </div>
+
+                <div class="order-item-right">
+                    ₹{{ item.price * (item.quantity | default(1)) }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <hr class="order-divider">
+
+    <!-- TOTAL -->
+    <div class="order-total-row">
+        <span>Total</span>
+        <span>₹{{ order.total }}</span>
+    </div>
+
+    <!-- ACTION -->
+    <button class="btn print-btn" onclick="window.print()">
+        🖨 Print Invoice
+    </button>
+
+</div>
+{% endblock %}
