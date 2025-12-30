@@ -87,15 +87,17 @@ Install all dependencies using:
 ```bash
 pip install -r requirements.txt
 ```
-##🗄 Database Details
 
--Database Type: NoSQL
--Database Name: neomart
--Database Server: MongoDB (Localhost)
--Default Port: 27017
+## 🗄 Database Details
+
+- Database Type: NoSQL
+- Database Name: neomart
+- Database Server: MongoDB (Localhost)
+- Default Port: 27017
 
 ▶️ Project Execution Steps (Beginner Friendly)
-Step 1: Install Python
+
+**Step 1: Install Python**
 
 Download Python from https://www.python.org
 
@@ -105,7 +107,8 @@ Verify installation:
 ```bash
 python --version
 ```
-Step 2: Install MongoDB
+
+**Step 2: Install MongoDB**
 
 Download MongoDB Community Edition from https://www.mongodb.com
 
@@ -115,43 +118,49 @@ Start MongoDB service:
 ```bash
 mongod
 ```
-Step 3: Copy Project Folder
+
+**Step 3: Copy Project Folder**
 
 Copy the NeoMart project folder
 
 Paste it into Desktop or any preferred directory
-Step 4: Install Dependencies
+
+**Step 4: Install Dependencies**
 
 Open terminal or command prompt inside the project folder:
 ```bash
 pip install -r requirements.txt
 ```
-Step 5: Run the Application
+
+**Step 5: Run the Application**
 ```bash
 python app.py
 ```
-Step 6: Open in Browser
+
+**Step 6: Open in Browser**
 
 Open the following URL:
 ```bash
 http://127.0.0.1:5000
 ```
+
 👥 User Roles
-Admin
 
--Manage products
--Control inventory
--Update order status
--Export order reports
+**Admin**
+- Manage products
+- Control inventory
+- Update order status
+- Export order reports
 
-User
-
--Register and login
--Browse products
--Add items to cart and wishlist
--Place and track orders
+**User**
+- Register and login
+- Browse products
+- Add items to cart and wishlist
+- Place and track orders
 
 📂 Project Folder Structure
+
+```
 NeoMart/
 │
 ├── app.py
@@ -176,7 +185,10 @@ NeoMart/
 └── static/
     ├── css/
     └── uploads/
+```
+
 ⚠ Common Errors and Solutions
+
 ❌ MongoDB connection failed
 
 Solution:
@@ -186,7 +198,6 @@ Ensure MongoDB service is running.
 
 Solution:
 Install dependencies:
-
 ```bash
 pip install -r requirements.txt
 ```
